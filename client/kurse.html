@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Aufgabe 4 - Galerie</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+
+
+        header, footer {
+            background-color: rgb(0, 84, 159)
+        }
+
+
+        main {
+            display: grid;
+            grid-template-columns: 75% 25%;
+        }
+
+        article {
+            display: flex;
+            flex-direction: column;
+        }
+
+        section {
+            border-radius: 5px;
+            background-color: lightgray;
+            padding: 5%;
+
+            margin: 5px;
+        }
+
+        aside {
+            border-radius: 5px;
+            background-color: lightgray;
+            padding: 5%;
+
+            margin: 5px;
+        }
+
+        .card {
+            display: inline-block;
+
+            border-radius: 5px;
+            background-color: white;
+            padding: 5%;
+
+            margin: 5px;
+        }
+
+        body {
+            font-family: 'Heebo', cursive;
+        }
+
+        header {
+            font-size: 30px;
+            margin-left: 10%;
+            color: blue;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            flex-direction: row;
+            list-style-type: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        nav a {
+            background-color: grey;
+            padding: 10px;
+            color: white;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: blue;
+            color: white;
+        }
+
+        main {
+            display: flex;
+            margin: 5%;
+        }
+
+        article {
+            box-sizing: border-box;
+            width: 80%;
+            padding-left: 10%;
+            margin: 3%;
+
+        }
+
+        table {
+            text-align: left;
+
+        }
+
+        td {
+            padding-right: 15px;
+            text-align: left;
+        }
+
+
+        .form {
+            position: relative;
+            text-align: center;
+        }
+
+
+        .form input {
+            margin: 15px;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .form button {
+            cursor: pointer;
+            background: #ff33cc;
+            padding: 0 0 30px 90px;
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>Name</h1>
+    <div class="container">
+        <nav class="navbar navbar-light">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="startseite">Startseite</a></li>
+                <li class="nav-item"><a href="pinnwand">Pinnwand</a></li>
+                <li class="nav-item"><a href="kurse">Kurse</a></li>
+                <li class="nav-item"><a href="galerie">Galerie</a></li>
+                <li class="nav-item"><a href="kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <article>
+        <section>
+            <script type="text/javascript">
+                function td(html) {
+                    var td = document.createElement("td");
+                    td.innerHTML = html;
+                    return td;
+                }
+                function deleteCourse(sender) {
+                    sender.parentNode.parentNode.remove();
+                    return false;
+                }
+                function createCourse() {
+                    var form = document.getElementById("kurs-form");
+                    var data = new FormData(form);
+                    console.log(data);
+
+                    var table = document.getElementById("table");
+
+                    var tr = document.createElement("tr");
+                    tr.append(td(data.get("name")));
+                    tr.append(td(data.get("description")));
+                    tr.append(td('<input type="text" value="' + data.get("password") + '" />'));
+                    tr.append(td("<button onclick='return deleteCourse(this)'>Löschen</button>"))
+                    table.append(tr);
+
+                    form.reset();
+
+                    return false;
+                }
+            </script>
+            <form id="kurs-form" onsubmit="return createCourse()">
+            <table>
+                <tr>
+                    <td><label for="Kursname">Kursname</label>:</td>
+                    <td><input class="text" type="text" id="Kursname" name="name"></td>
+                </tr>
+                <tr>
+                    <td><label for="Kursbeschreibung">Kursbeschreibung</label>:</td>
+                    <td><input class="text" type="text" id="Kursbeschreibung" name="description"></td>
+                </tr>
+                <tr>
+                    <td><label for="pw">Passwort</label>:</td>
+                    <td><input class="text" type="password" id="pw" name="password"></td>
+                </tr>
+            </table>
+            <button id="create" class="btn btn-primary">Anlegen</button>
+            </form>
+        </section>
+        <br>
+        <section>
+            <table id="table" class="table">
+                <tr>
+                    <th>Kursname</th>
+                    <th>Kursbeschreibung</th>
+                    <th>Passwort</th>
+                    <th>Löschen</th>
+                </tr>
+                <!--
+    <tr>
+      <td> Schwimmen </td>
+      <td> Hallenschwimmen </td>
+      <td> <input class="text" type="password"> </td>
+      <td> <button> Löschen </button> </td>
+    </tr>
+    <tr>
+      <td> Kontakthüpfen </td>
+      <td> Hüpfe dir deine Kontakte </td>
+      <td> <input class="text" type="password"> </td>
+      <td> <button> Löschen </button> </td>
+    </tr>
+-->
+            </table>
+        </section>
+    </article>
+    <aside id="right">
+        <a>Übung:
+        </a>
+        <br/>
+        <a>Öffnungszeiten
+        </a>
+    </aside>
+</main>
+<footer>
+    Footer
+</footer>
+
+</body>
+</html>

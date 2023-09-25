@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Aufgabe 4 - Galerie</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+
+
+        header, footer {
+            background-color: rgb(0, 84, 159)
+        }
+
+
+        main {
+            display: grid;
+            grid-template-columns: 75% 25%;
+        }
+
+        article {
+            display: flex;
+            flex-direction: column;
+        }
+
+        section {
+            border-radius: 5px;
+            background-color: lightgray;
+            padding: 5%;
+
+            margin: 5px;
+        }
+
+        aside {
+            border-radius: 5px;
+            background-color: lightgray;
+            padding: 5%;
+
+            margin: 5px;
+        }
+
+        .card {
+            display: inline-block;
+
+            border-radius: 5px;
+            background-color: white;
+            padding: 5%;
+
+            margin: 5px;
+        }
+
+        body {
+            font-family: 'Heebo', cursive;
+        }
+
+        header {
+            font-size: 30px;
+            margin-left: 10%;
+            color: blue;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            flex-direction: row;
+            list-style-type: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        nav a {
+            background-color: grey;
+            padding: 10px;
+            color: white;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: blue;
+            color: white;
+        }
+
+        main {
+            display: flex;
+            margin: 5%;
+        }
+
+        article {
+            box-sizing: border-box;
+            width: 80%;
+            padding-left: 10%;
+            margin: 3%;
+
+        }
+
+        table {
+            text-align: left;
+
+        }
+
+        td {
+            padding-right: 15px;
+            text-align: left;
+        }
+
+
+        .form {
+            position: relative;
+            text-align: center;
+        }
+
+
+        .form input {
+            margin: 15px;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .form button {
+            cursor: pointer;
+            background: #ff33cc;
+            padding: 0 0 30px 90px;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        #pinnwand {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .marquee {
+            -moz-animation: marquee 10s linear infinite;
+            -webkit-animation: marquee 10s linear infinite;
+            animation: marquee 10s linear infinite;
+        }
+
+        @-moz-keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @-webkit-keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Name</h1>
+    <div class="container">
+        <nav class="navbar navbar-light">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="startseite">Startseite</a></li>
+                <li class="nav-item"><a href="pinnwand">Pinnwand</a></li>
+                <li class="nav-item"><a href="kurse">Kurse</a></li>
+                <li class="nav-item"><a href="galerie">Galerie</a></li>
+                <li class="nav-item"><a href="kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <article id="article">
+        <section>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll always share your email with
+                        everyone.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+        <section>
+            <h2> Pinnwand </h2>
+            <div id="pinnwand">
+                <div class="marquee" id="text">This is an example pin!</div>
+            </div>
+            <script type="text/javascript">
+                function post() {
+                    document.getElementById("text").innerText = document.getElementById("pininput").value;
+                    document.getElementById("pininput").value = "";
+                }
+            </script>
+            <div>
+                <input id="pininput"/>
+                <button id="pin-submit" onclick="post()">Submit</button>
+            </div>
+        </section>
+    </article>
+    <aside id="right">
+        <a>Übung:
+        </a>
+        <br/>
+        <a>Öffnungszeiten
+        </a>
+    </aside>
+</main>
+<footer>
+    Footer
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+tasks:
+    - name: Start node server
+      init: npm install
+      command: npm run start
+
+ports:
+    - port: 1593
+      onOpen: open-preview
