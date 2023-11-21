@@ -4,5 +4,5 @@ tasks:
       command: npm run start
 
 ports:
-    - port: 1593
+    - port: 8080
       onOpen: open-preview
