@@ -32,7 +32,7 @@ Alternatives Vorgehen zum selbst ausprobieren:
 1. Installiert Postman (falls noch nicht vorhanden)
 2. Erweitert den Server um eine Post-Route: dabei soll die Anfrage sowohl im Server als
    auch beim Client zurückgegeben werden.
-   Form der Rückgabe: Folgende Daten erhalten: `<<Daten>>`
+   Form der Rückgabe: `Folgende Daten erhalten: <<Daten>>`
 3. Nutzt `body-parser` oder `express.json()`.
 4. Testet mithilfe von Postman. Die Daten sollen in Form eines JSON-Objekts übergeben
    werden.

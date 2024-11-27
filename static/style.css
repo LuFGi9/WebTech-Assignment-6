@@ -1,15 +1,18 @@
-
 header, footer {
     background-color: rgb(0, 84, 159)
 }
+
+
 main {
     display: grid;
     grid-template-columns: 75% 25%;
 }
+
 article {
     display: flex;
     flex-direction: column;
 }
+
 section {
     border-radius: 5px;
     background-color: lightgray;
@@ -106,4 +109,39 @@ td {
     cursor: pointer;
     background: #ff33cc;
     padding: 0 0 30px 90px;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+#pinnwand {
+    position: relative;
+    overflow: hidden;
+}
+
+.marquee {
+    -moz-animation: marquee 10s linear infinite;
+    -webkit-animation: marquee 10s linear infinite;
+    animation: marquee 10s linear infinite;
+}
+
+@-moz-keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
 }
